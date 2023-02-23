@@ -49,6 +49,7 @@ const CommentInner = () => {
   };
 
   const onDeleteButtonHandler = (e, id) => {
+    e.stopPropagation();
     axios.delete(`${process.env.REACT_APP_BASEURL}/comments/${id}`);
     refetch();
     dispatch(modeChange("READ"));
